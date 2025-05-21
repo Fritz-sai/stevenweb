@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Mission and Vision of Steven Roque, freelance web designer and developer">
+  <title>Steven Roque | Mission & Vision</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    .section {
+      padding: 120px 20px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: var(--text-light);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary-color);
+    }
+
+    .section p {
+      font-size: 1.2rem;
+      color: #ccc;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    .mission-vision-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+      margin-top: 40px;
+      align-items: center;
+    }
+
+    .mission-vision-card {
+      background: rgba(30, 29, 29, 0.8);
+      padding: 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 500px;
+      transition: transform 0.3s ease;
+      border: 1px solid rgba(111, 0, 0, 0.3);
+    }
+
+    .mission-vision-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .mission-vision-card i {
+      font-size: 3rem;
+      color: #6f0000;
+      margin-bottom: 20px;
+    }
+
+    .core-values {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+      padding: 0 20px;
+    }
+
+    .value-card {
+      background: rgba(30, 29, 29, 0.8);
+      padding: 25px;
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(111, 0, 0, 0.3);
+      position: relative;
+    }
+
+    .value-card:hover {
+      transform: scale(1.05);
+      background: rgba(111, 0, 0, 0.1);
+    }
+
+    .value-card i {
+      font-size: 2.5rem;
+      color: #6f0000;
+      margin-bottom: 15px;
+    }
+
+    .value-card h3 {
+      color: #fff;
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+    }
+
+    .value-card p {
+      color: #ccc;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .value-img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+      margin-bottom: 10px;
+      box-shadow: 0 2px 8px #6f000033;
+      background: #222;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      background: #1e1d1d;
+      text-align: center;
+      padding: 18px 20px;
+      color: #f0f0f0;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: inset 0 1px 3px #616161cc;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+    }
+
+    .fade-in.delay {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        background: rgba(30, 29, 29, 0.95);
+        width: 100%;
+        flex-direction: column;
+        display: none;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .logo-img {
+        height: 30px;
+      }
+
+      .section h2 {
+        font-size: 2rem;
+      }
+
+      .section p {
+        font-size: 1.1rem;
+      }
+    }
+
+    .mv-illustration {
+      max-width: 220px;
+      width: 100%;
+      height: auto;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px #6f000055;
+      margin-bottom: 18px;
+      background: #222;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html"><img src="Images/Logo.jpg" alt="Logo" class="logo-img" /></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="mission_vision.html" class="active">Mission & Vision</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="myprofile.html">My Profile</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section fade-in">
+      <h2>Our Mission</h2>
+      <div class="mission-vision-container">
+       
+        <div class="mission-vision-card">
+          <i class="fas fa-bullseye"></i>
+          <p>
+            To empower individuals and businesses by creating visually stunning, highly functional, and user-centric websites that drive results. We are dedicated to delivering digital experiences that inspire, engage, and grow your online presence.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in delay">
+      <h2>Our Vision</h2>
+      <div class="mission-vision-container">
+        
+        <div class="mission-vision-card">
+          <i class="fas fa-eye"></i>
+          <p>
+            To be a leading force in web design and development by consistently pushing creative and technical boundaries. We aim to build a digital future where every idea has the perfect platform to thrive and connect with the world.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <h2>Core Values</h2>
+      <div class="core-values">
+        <div class="value-card">
+          <img src="Images/value-excellence.jpg" alt="Excellence" class="value-img" />
+          <i class="fas fa-star"></i>
+          <h3>Excellence</h3>
+          <p>We strive for excellence in every project, delivering the highest quality solutions that exceed expectations.</p>
+        </div>
+        <div class="value-card">
+          <img src="Images/value-integrity.jpg" alt="Integrity" class="value-img" />
+          <i class="fas fa-handshake"></i>
+          <h3>Integrity</h3>
+          <p>We maintain the highest standards of professional integrity and ethical conduct in all our dealings.</p>
+        </div>
+        <div class="value-card">
+          <img src="Images/value-innovation.jpg" alt="Innovation" class="value-img" />
+          <i class="fas fa-lightbulb"></i>
+          <h3>Innovation</h3>
+          <p>We embrace creativity and innovation, constantly exploring new technologies and approaches.</p>
+        </div>
+        <div class="value-card">
+          <img src="Images/value-collaboration.jpg" alt="Collaboration" class="value-img" />
+          <i class="fas fa-users"></i>
+          <h3>Collaboration</h3>
+          <p>We believe in the power of teamwork and building strong partnerships with our clients.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2023 Steven Roque. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // Add scroll animation
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section').forEach(section => {
+      observer.observe(section);
+    });
+  </script>
+</body>
+</html>

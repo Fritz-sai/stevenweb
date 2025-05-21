@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Client reviews and testimonials for Steven Roque's web design and development services">
+  <title>Steven Roque | Client Reviews</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      background: #111;
+      padding: 20px 40px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.7);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 70px;
+      width: auto;
+      border-radius: 10px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: #fff;
+      padding: 8px 12px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      background: #6f0000;
+      border-radius: 5px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    .section {
+      padding: 120px 20px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+    }
+
+    .section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: var(--text-light);
+      position: relative;
+      display: inline-block;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 3px;
+      background: var(--primary-color);
+    }
+
+    .reviews-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .review-card {
+      background: rgba(30, 29, 29, 0.8);
+      padding: 30px;
+      border-radius: var(--border-radius);
+      text-align: left;
+      transition: transform var(--transition-speed) ease;
+      border: 1px solid rgba(111, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .review-card:hover {
+      transform: translateY(-10px);
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .reviewer-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      margin-right: 15px;
+      object-fit: cover;
+      border: 2px solid var(--primary-color);
+    }
+
+    .reviewer-info {
+      flex: 1;
+    }
+
+    .reviewer-name {
+      font-size: 1.2rem;
+      color: var(--text-light);
+      margin-bottom: 5px;
+    }
+
+    .reviewer-title {
+      font-size: 0.9rem;
+      color: var(--text-gray);
+    }
+
+    .rating {
+      color: #ffd700;
+      margin-bottom: 15px;
+    }
+
+    .rating i {
+      margin-right: 2px;
+    }
+
+    .review-text {
+      color: var(--text-gray);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .review-date {
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      margin-top: 15px;
+      text-align: right;
+    }
+
+    .stats-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin: 40px 0;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      background: rgba(30, 29, 29, 0.8);
+      border-radius: var(--border-radius);
+      min-width: 200px;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .stat-label {
+      color: var(--text-gray);
+      font-size: 1.1rem;
+    }
+
+    .cta-section {
+      background: rgba(111, 0, 0, 0.1);
+      padding: 40px 20px;
+      margin-top: 40px;
+      border-radius: var(--border-radius);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .review-filter {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: rgba(30, 29, 29, 0.8);
+      color: var(--text-light);
+      padding: 8px 16px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all var(--transition-speed) ease;
+      border: 1px solid rgba(111, 0, 0, 0.3);
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--primary-color);
+      transform: translateY(-2px);
+    }
+
+    .review-form {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      background: rgba(30, 29, 29, 0.8);
+      border-radius: var(--border-radius);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--text-light);
+    }
+
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid rgba(111, 0, 0, 0.3);
+      border-radius: 5px;
+      background: rgba(0, 0, 0, 0.2);
+      color: var(--text-light);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+      outline: none;
+      border-color: var(--primary-color);
+    }
+
+    .success-message {
+      background: rgba(0, 128, 0, 0.2);
+      color: #4CAF50;
+      padding: 10px;
+      border-radius: 5px;
+      margin-top: 10px;
+      text-align: center;
+    }
+
+    .error {
+      border-color: #ff0000 !important;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+    }
+
+    .fade-in.delay {
+      animation-delay: 0.3s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        background: rgba(30, 29, 29, 0.95);
+        width: 100%;
+        flex-direction: column;
+        display: none;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .logo-img {
+        height: 30px;
+      }
+
+      .section h2 {
+        font-size: 2rem;
+      }
+
+      .stats-container {
+        gap: 20px;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loading">
+    <div class="loading-spinner"></div>
+  </div>
+
+  <header>
+    <nav class="navbar">
+      <a href="index.html"><img src="Images/Logo.jpg" alt="Logo" class="logo-img" /></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="mission_vision.html">Mission & Vision</a></li>
+        <li><a href="#">Portfolio</a></li>
+        <li><a href="reviews.html" class="active">Reviews</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">My Profile</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section fade-in">
+      <h2>Client Reviews</h2>
+      
+    </section>
+
+    <section class="section fade-in delay">
+      <div class="review-filter">
+        <button class="filter-btn active" data-filter="all">All Reviews</button>
+        <button class="filter-btn" data-filter="5">5 Stars</button>
+        <button class="filter-btn" data-filter="4">4+ Stars</button>
+        <button class="filter-btn" data-filter="recent">Most Recent</button>
+      </div>
+
+      <div class="reviews-container">
+        <div class="review-card" data-rating="5" data-date="2024-03-15">
+          <div class="review-header">
+            <img src="Images/client1.jpg" alt="Nathaniel Deligero" class="reviewer-img" data-src="Images/client1.jpg">
+            <div class="reviewer-info">
+              <div class="reviewer-name">Nathaniel Deligero</div>
+              <div class="reviewer-title">CEO, TechStart Inc.</div>
+            </div>
+          </div>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">
+            "Steven transformed our online presence completely. His attention to detail and creative approach resulted in a website that perfectly represents our brand. The user experience is seamless, and we've seen a significant increase in customer engagement."
+          </p>
+          <div class="review-date">March 15, 2024</div>
+        </div>
+
+        <div class="review-card" data-rating="5" data-date="2024-02-28">
+          <div class="review-header">
+            <img src="Images/client2.jpg" alt="Daniel Evangilista" class="reviewer-img" data-src="Images/client2.jpg">
+            <div class="reviewer-info">
+              <div class="reviewer-name">Daniel Evangilista</div>
+              <div class="reviewer-title">Marketing Director, Creative Solutions</div>
+            </div>
+          </div>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <p class="review-text">
+            "Working with Steven was a pleasure from start to finish. He understood our vision and delivered beyond our expectations. The website he created is not only beautiful but also highly functional and optimized for conversions."
+          </p>
+          <div class="review-date">February 28, 2024</div>
+        </div>
+
+        <div class="review-card" data-rating="4.5" data-date="2024-02-10">
+          <div class="review-header">
+            <img src="Images/client3.jpg" alt="Babi" class="reviewer-img" data-src="Images/client3.jpg">
+            <div class="reviewer-info">
+              <div class="reviewer-name">Landung Babi</div>
+              <div class="reviewer-title">Founder, Digital Innovations</div>
+            </div>
+          </div>
+          <div class="rating">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star-half-alt"></i>
+          </div>
+          <p class="review-text">
+            "Steven's expertise in web development is outstanding. He created a custom e-commerce solution that perfectly fits our needs. His technical knowledge and problem-solving skills are impressive, and he's always available to help."
+          </p>
+          <div class="review-date">February 10, 2024</div>
+        </div>
+      </div>
+
+      <div class="review-form">
+        <h3>Share Your Experience</h3>
+        <form id="reviewForm">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="title">Your Title/Company</label>
+            <input type="text" id="title" name="title" required>
+          </div>
+          <div class="form-group">
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating" required>
+              <option value="5">5 Stars</option>
+              <option value="4">4 Stars</option>
+              <option value="3">3 Stars</option>
+              <option value="2">2 Stars</option>
+              <option value="1">1 Star</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="review">Your Review</label>
+            <textarea id="review" name="review" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="btn">Submit Review</button>
+        </form>
+      </div>
+
+      <div class="cta-section">
+        <h3>Ready to Start Your Project?</h3>
+        <p>Join our satisfied clients and let's create something amazing together.</p>
+        <a href="#" class="btn">Get in Touch</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span class="copyright-year">2024</span> Steven Roque. All rights reserved.</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+
+    // Add scroll animation
+    const observerOptions = {
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.section, .review-card').forEach(element => {
+      observer.observe(element);
+    });
+
+    // Review Filtering
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const reviewCards = document.querySelectorAll('.review-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active button
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const filter = button.dataset.filter;
+
+        reviewCards.forEach(card => {
+          const rating = parseFloat(card.dataset.rating);
+          const date = new Date(card.dataset.date);
+
+          switch(filter) {
+            case '5':
+              card.style.display = rating === 5 ? 'block' : 'none';
+              break;
+            case '4':
+              card.style.display = rating >= 4 ? 'block' : 'none';
+              break;
+            case 'recent':
+              const threeMonthsAgo = new Date();
+              threeMonthsAgo.setMonth(threeMonthsAgo.getMonth() - 3);
+              card.style.display = date >= threeMonthsAgo ? 'block' : 'none';
+              break;
+            default:
+              card.style.display = 'block';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html> 

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Steven Roque | My Profile - Web Designer & Developer">
+  <title>Steven Roque | My Profile</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      background: #111;
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+    }
+    .profile-hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 120px auto 0 auto;
+      padding: 0 20px 60px 20px;
+      gap: 40px;
+    }
+    .hero-left {
+      flex: 1 1 340px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 18px;
+    }
+    .hero-greeting {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #6f0000;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .hero-name {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .hero-tagline {
+      font-size: 1.15rem;
+      color: #bdbdbd;
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+    .hero-btn {
+      background: #6f0000;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 14px 36px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 12px #6f0000;
+      width: fit-content;
+    }
+    .hero-btn:hover {
+      background: #c00505;
+    }
+    .hero-img {
+      flex: 1 1 320px;
+      max-width: 340px;
+      width: 100%;
+      height: auto;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 8px 40px #6f0000, 0 2px 12px #000a;
+      background: #222;
+      display: block;
+      margin: 0 auto;
+    }
+    .about-section {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+      gap: 40px;
+      background: #1e1d1d;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px #6f0000;
+    }
+    .about-img {
+      flex: 1 1 260px;
+      max-width: 260px;
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      object-fit: cover;
+      margin: 32px 0;
+      box-shadow: 0 2px 12px #6f0000;
+      background: #222;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .about-info {
+      flex: 2 1 340px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 32px 0;
+    }
+    .about-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .about-bio {
+      color: #bdbdbd;
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+    .about-details {
+      color: #fff;
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .about-details span {
+      color: #6f0000;
+      font-weight: 600;
+      margin-right: 8px;
+    }
+    .services-section {
+      max-width: 1200px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+    .services-title {
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 40px;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 1;
+    }
+    .services-title::after {
+      content: 'SERVICES';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 4.5rem;
+      color: #fff1;
+      z-index: -1;
+      font-weight: 900;
+      letter-spacing: 8px;
+      pointer-events: none;
+      user-select: none;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 32px;
+      margin-top: 10px;
+    }
+    .service-card {
+      background: #1e1d1d;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px #6f0000;
+      padding: 36px 24px 28px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+    .service-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px #6f0000;
+    }
+    .service-icon {
+      font-size: 2.5rem;
+      color: #6f0000;
+      margin-bottom: 18px;
+    }
+    .service-title {
+      color: #fff;
+      font-size: 1.18rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .service-desc {
+      color: #bdbdbd;
+      font-size: 1.01rem;
+      line-height: 1.5;
+    }
+    @media (max-width: 900px) {
+      .profile-hero, .about-section {
+        flex-direction: column;
+        gap: 24px;
+        align-items: flex-start;
+      }
+      .hero-img, .about-img {
+        max-width: 100%;
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+      }
+      .about-section {
+        padding: 0 8px;
+      }
+    }
+    @media (max-width: 600px) {
+      .profile-hero, .about-section, .services-section {
+        padding: 0 4px;
+      }
+      .hero-img, .about-img {
+        display: none;
+      }
+      .hero-greeting {
+        font-size: 1.1rem;
+      }
+      .hero-name {
+        font-size: 1.5rem;
+      }
+      .services-title {
+        font-size: 1.1rem;
+      }
+      .services-title::after {
+        font-size: 2.2rem;
+      }
+    }
+    .experience-section {
+      max-width: 1100px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+    }
+    .experience-title {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 32px;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+    .experience-card {
+      background: #1e1d1d;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px #6f0000;
+      padding: 36px 28px 28px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 28px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .exp-icon {
+      font-size: 2.8rem;
+      color: #6f0000;
+      background: #222;
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px #6f000033;
+      margin-right: 10px;
+    }
+    .exp-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .exp-role {
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .exp-desc {
+      color: #bdbdbd;
+      font-size: 1.05rem;
+      line-height: 1.6;
+    }
+    .exp-tech {
+      color: #6f0000;
+      font-size: 1.01rem;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    @media (max-width: 700px) {
+      .experience-card {
+        flex-direction: column;
+        align-items: center;
+        padding: 24px 10px;
+      }
+      .exp-icon {
+        margin-right: 0;
+        margin-bottom: 12px;
+      }
+    }
+    .reflection-section {
+      max-width: 900px;
+      margin: 0 auto 60px auto;
+      padding: 0 20px;
+    }
+    .reflection-title {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 32px;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+    .reflection-card {
+      background: #1e1d1d;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px #6f0000;
+      padding: 36px 28px 28px 28px;
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .reflection-icon {
+      font-size: 2.5rem;
+      color: #6f0000;
+      background: #222;
+      border-radius: 12px;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px #6f000033;
+      margin-right: 10px;
+    }
+    .reflection-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .reflection-text {
+      color: #bdbdbd;
+      font-size: 1.08rem;
+      line-height: 1.7;
+    }
+    @media (max-width: 700px) {
+      .reflection-card {
+        flex-direction: column;
+        align-items: center;
+        padding: 24px 10px;
+      }
+      .reflection-icon {
+        margin-right: 0;
+        margin-bottom: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html"><img src="Images/Logo.jpg" alt="Logo" class="logo-img" /></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="mission_vision.html">Mission & Vision</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="myprofile.html" class="active">My Profile</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="profile-hero">
+      <div class="hero-left">
+        <div class="hero-greeting">Hello I'm</div>
+        <div class="hero-name">Steven Roque</div>
+        <div class="hero-tagline">A Professional Web Designer and Imaginative Developer. Strong attention to small details.</div>
+        <a href="#" class="hero-btn">Download CV</a>
+      </div>
+      <img src="Images/f034b044-ab74-4f9f-9ac5-ae6c202e2f2e.jpg" alt="Steven Roque" class="hero-img" />
+    </section>
+    <section class="about-section">
+      <img src="Images/f034b044-ab74-4f9f-9ac5-ae6c202e2f2e.jpg" alt="Steven Roque casual" class="about-img" />
+      <div class="about-info">
+        <div class="about-title">I'm Steven</div>
+        <div class="about-bio">
+          I'm a creative designer and developer with holistic knowledge of software design and development. My passion for pixel-perfect design, clean coding, and strong client and team collaboration powers the creation of distinctive functional solutions.
+        </div>
+        <div class="about-details">
+          <div><span>Full Name:</span> Steven Roque</div>
+          <div><span>Email:</span> stevenroque@email.com</div>
+          <div><span>Mobile:</span> +1 (555) 123-4567</div>
+        </div>
+      </div>
+    </section>
+    <section class="experience-section">
+      <div class="experience-title">Experience</div>
+      <div class="experience-card">
+        <div class="exp-icon"><i class="fas fa-laptop-code"></i></div>
+        <div class="exp-content">
+          <div class="exp-role">Web Designer & Developer</div>
+          <div class="exp-desc">
+            I built this portfolio website from scratch using only <strong>HTML</strong> and <strong>CSS</strong>. Every section, animation, and layout is handcrafted—no frameworks, no page builders, just clean code and creative vision. This approach ensures full control over the design, performance, and responsiveness, resulting in a unique and highly optimized web experience.
+          </div>
+          <div class="exp-tech">Technologies: HTML5, CSS3, Font Awesome</div>
+        </div>
+      </div>
+    </section>
+    <section class="reflection-section">
+      <div class="reflection-title">Reflection</div>
+      <div class="reflection-card">
+        <div class="reflection-icon"><i class="fas fa-lightbulb"></i></div>
+        <div class="reflection-content">
+          <div class="reflection-text">
+            Building this site was more than just a technical exercise—it was a journey of creativity, problem-solving, and growth. I learned the importance of attention to detail, persistence, and the power of starting from scratch. Every challenge was an opportunity to improve, and every solution brought a sense of accomplishment. I'm proud of what I've created and excited to keep learning and pushing my skills further.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="services-section">
+      <div class="services-title">What I Learned</div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+          <div class="service-title">Responsive Design</div>
+          <div class="service-desc">I learned how to make layouts adapt beautifully to any device using media queries, flexible grids, and relative units.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-magic"></i></div>
+          <div class="service-title">CSS Animations</div>
+          <div class="service-desc">I explored transitions, keyframes, and scroll-triggered effects to make the site feel dynamic and engaging.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-th-large"></i></div>
+          <div class="service-title">Flexbox & Grid</div>
+          <div class="service-desc">I mastered modern layout techniques for building complex, flexible, and maintainable page structures.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-universal-access"></i></div>
+          <div class="service-title">Accessibility</div>
+          <div class="service-desc">I made sure the site is usable for everyone by using semantic HTML, proper contrast, and keyboard navigation.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-code"></i></div>
+          <div class="service-title">Clean Code</div>
+          <div class="service-desc">I focused on writing organized, reusable, and well-commented HTML and CSS for easier updates and scalability.</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+          <div class="service-title">Problem Solving</div>
+          <div class="service-desc">Every challenge was a chance to learn, debug, and grow as a developer—turning obstacles into opportunities.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>© <span class="copyright-year">2024</span> Steven Roque. All rights reserved.</p>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

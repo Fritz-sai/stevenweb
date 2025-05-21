@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of a freelance web designer and developer">
+  <title>Steven Roque | Freelance Web Designer & Developer</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+   
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+
+    .hero {
+      height: 100vh;
+      background: linear-gradient(to bottom right, #1e1d1d, #000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      flex-direction: column;
+    }
+
+    .adjustable-text {
+      position: absolute;
+      top: 150px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.2rem;
+      color: #ccc;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    @media (min-width: 769px) {
+      .adjustable-text {
+        left: -100px;
+        transform: none;
+      }
+    }
+
+    .custom-gif {
+      width: 450px;
+      height: auto;
+      position: relative;
+      top: -50px;
+      left: -180px;
+      transition: all 0.2s ease;
+    }
+
+    .hero-content {
+      flex: 1;
+      max-width: 500px;
+      animation: fadeInUp 1s ease-out;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      background: #6f0000;
+      color: #fff;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      font-size: 1rem;
+      transition: background 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #a80000;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #fff;
+    }
+
+    .section p {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .trusted-logos {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .trusted-gif {
+      height: 150px;
+      width: auto;
+      border-radius: 25px;
+    }
+
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .service-box {
+      background: #111;
+      padding: 30px;
+      border-radius: 14px;
+      width: 280px;
+      box-shadow: 0 0 12px #616161cc;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: default;
+    }
+
+    .service-box:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 0 24px #ff2b2bcc;
+    }
+
+    .cta {
+   
+      color: #fff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      margin: 20px auto 0;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cta h2 {
+      margin-bottom: 0;
+    }
+
+    .cta-button {
+      
+      padding: 30px 20px;
+      text-align: center;
+      margin: 0 auto;
+      max-width: 500px;
+      border-radius: 10px;
+    }
+
+    footer {
+      background: #1e1d1d;
+      text-align: center;
+      padding: 18px 20px;
+      color: #f0f0f0;
+      font-weight: 600;
+      font-size: 0.9rem;
+      box-shadow: inset 0 1px 3px #616161cc;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+    }
+
+    .fade-in.delay {
+      animation-delay: 0.3s;
+    }
+
+    .fade-in.delay-more {
+      animation-delay: 0.6s;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        background: rgba(30, 29, 29, 0.95);
+        width: 100%;
+        flex-direction: column;
+        display: none;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-inner {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .custom-gif {
+        width: 90vw;
+        max-width: 350px;
+        top: 0;
+        left: 0;
+        position: relative;
+      }
+
+      .logo-img {
+        height: 30px;
+      }
+
+      .services {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .adjustable-text {
+        position: relative;
+        top: -15px;
+        margin-top: -30px;
+        font-size: 1rem;
+        color: #ccc;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .cta {
+        padding: 20px 10px;
+      }
+
+      .cta-button {
+        padding: 20px 10px;
+      }
+    }
+  </style>
+ 
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html"><img src="Images/Logo.jpg" alt="Logo" class="logo-img" /></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html" >About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="mission_vision.html">Mission & Vision</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="myprofile.html">My Profile</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-image">
+          <img src="Images/Greetings.gif" alt="Greeting GIF" id="gif" class="custom-gif" />
+          <div class="adjustable-text">We, the ArquiSherX, just like a Phoenix,<br />will forever shine like the sun</div>
+        </div>
+
+        <div class="hero-content">
+          <h1 class="fade-in">Creating Custom Websites That Inspire</h1>
+          <p class="fade-in delay">High-end, responsive, and fully custom web solutions for businesses and individuals.</p>
+          <a href="#" class="btn fade-in delay-more">View My Work</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section fade-in">
+      <h2>Trusted by the biggest names in the market</h2>
+      <div class="trusted-logos">
+        <img src="Images/3.gif" alt="Trusted logo 1" class="trusted-gif" />
+        <img src="Images/4.gif" alt="Trusted logo 2" class="trusted-gif" />
+        <img src="Images/5.gif" alt="Trusted logo 3" class="trusted-gif" />
+      </div>
+    </section>
+
+    <section class="section fade-in delay">
+      <h2>What We Do</h2>
+      <div class="services">
+        <div class="service-box">
+          <h3>Web Design</h3>
+          <p>Clean, modern, and tailored designs that reflect your brand identity.</p>
+        </div>
+        <div class="service-box">
+          <h3>Web Development</h3>
+          <p>From static sites to dynamic apps, I build responsive, fast-loading websites.</p>
+        </div>
+        <div class="service-box">
+          <h3>Maintenance & Support</h3>
+          <p>Ongoing updates, security monitoring, and technical help when you need it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta fade-in delay-more">
+      <h2>Ready to bring your ideas to life?</h2>
+    </section>
+
+    <section class="cta-button fade-in delay-more">
+      <a href="#" class="btn">Get in Touch</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2023 Steven Roque. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
+  </script>
+</body>
+</html>

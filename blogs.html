@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Steven Roque's latest blog posts on web design, development, and digital trends.">
+  <title>Steven Roque | Blog</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .blog-section {
+      max-width: 1200px;
+      margin: 120px auto 0 auto;
+      padding: 0 20px 60px 20px;
+    }
+    .blog-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .blog-header h2 {
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .blog-header p {
+      color: var(--text-gray);
+      font-size: 1.1rem;
+    }
+    .blogs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+    .blog-card {
+      background: var(--background-light);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px #000a;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .blog-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 32px #6f0000cc;
+    }
+    .blog-img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #222;
+    }
+    .blog-content {
+      padding: 22px 20px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .blog-title {
+      color: #fff;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .blog-meta {
+      color: var(--primary-color);
+      font-size: 0.98rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .blog-excerpt {
+      color: var(--text-gray);
+      font-size: 1.05rem;
+      margin-bottom: 16px;
+      flex: 1;
+    }
+    .read-more {
+      color: var(--primary-color);
+      font-size: 1rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      transition: color 0.2s;
+      display: inline-block;
+    }
+    .read-more:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+    .cta-section {
+      background: var(--background-light);
+      border-radius: 12px;
+      max-width: 900px;
+      margin: 20px auto 40px auto;
+      padding: 48px 30px 38px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      box-shadow: 0 2px 12px #000a;
+      text-align: left;
+    }
+    .cta-title {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .cta-desc {
+      color: var(--text-gray);
+      font-size: 1.08rem;
+      margin-bottom: 22px;
+      max-width: 600px;
+    }
+    .cta-form {
+      display: flex;
+      gap: 12px;
+      width: 100%;
+      max-width: 420px;
+    }
+    .cta-input {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1.05rem;
+      background: #222;
+      color: #fff;
+      outline: none;
+      transition: box-shadow 0.2s;
+    }
+    .cta-input:focus {
+      box-shadow: 0 0 0 2px var(--primary-color);
+    }
+    .cta-btn {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 28px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .cta-btn:hover {
+      background: var(--primary-hover);
+    }
+    @media (max-width: 600px) {
+      .blog-header h2, .cta-title {
+        font-size: 1.3rem;
+      }
+      .blog-img {
+        height: 110px;
+      }
+      .cta-section {
+        padding: 30px 10px;
+      }
+      .cta-form {
+        flex-direction: column;
+        gap: 10px;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html"><img src="Images/Logo.jpg" alt="Logo" class="logo-img" /></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="mission_vision.html">Mission & Vision</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="blogs.html" class="active">Blog</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="myprofile.html">My Profile</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="blog-section">
+      <div class="blog-header fade-in">
+        <h2>Latest Blog Posts</h2>
+        <p>Insights, tips, and stories on web design, development, and digital trends.</p>
+      </div>
+      <div class="blogs-grid fade-in">
+        <div class="blog-card">
+          <img src="Images/why.jpg" alt="Why Modern Web Design Matters" class="blog-img" />
+          <div class="blog-content">
+            <div class="blog-title">Why Modern Web Design Matters</div>
+            <div class="blog-meta">May 2024 &bull; Web Design</div>
+            <div class="blog-excerpt">Discover how a modern, user-focused website can boost your brand and drive business growth in today's digital world.</div>
+            <a href="https://www.locally.net.au/post/9-reasons-why-modern-website-design-matters-for-your-business#:~:text=Importance%20of%20Modern%20Website%20Design%20in%20Increasing%20Online%20Visibility&text=Having%20a%20modern%20website%20design%20is%20absolutely%20crucial%20for%20increasing,on%20search%20motor%20results%20pages." class="read-more">Read More &gt;</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="Images/top5.jpg" alt="Top 5 JavaScript Frameworks in 2024" class="blog-img" />
+          <div class="blog-content">
+            <div class="blog-title">Top 5 JavaScript Frameworks in 2024</div>
+            <div class="blog-meta">April 2024 &bull; Development</div>
+            <div class="blog-excerpt">A quick rundown of the most popular JavaScript frameworks and how to choose the right one for your next project.</div>
+            <a href="https://www.google.com/search?q=Top+5+JavaScript+Frameworks+in+2024&oq=Top+5+JavaScript+Frameworks+in+2024&gs_lcrp=EgZjaHJvbWUyBggAEEUYOdIBBzI4N2owajeoAgCwAgA&sourceid=chrome&ie=UTF-8" class="read-more">Read More &gt;</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="Images/ceo.jpg" alt="SEO Basics for Small Businesses" class="blog-img" />
+          <div class="blog-content">
+            <div class="blog-title">SEO Basics for Small Businesses</div>
+            <div class="blog-meta">March 2024 &bull; SEO</div>
+            <div class="blog-excerpt">Learn the essential SEO strategies every small business owner should know to improve online visibility and attract more customers.</div>
+            <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" class="read-more">Read More &gt;</a>
+          </div>
+        </div>
+        <div class="blog-card">
+          <img src="Images/build.jpg" alt="How to Build a Personal Brand Online" class="blog-img" />
+          <div class="blog-content">
+            <div class="blog-title">How to Build a Personal Brand Online</div>
+            <div class="blog-meta">February 2024 &bull; Branding</div>
+            <div class="blog-excerpt">Tips and actionable steps to help you create a strong, authentic personal brand that stands out on the web.</div>
+            <a href="https://graduate.northeastern.edu/knowledge-hub/tips-for-building-your-personal-brand/" class="read-more">Read More &gt;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="cta-section fade-in">
+      <div class="cta-title">Stay Updated with the Latest Insights</div>
+      <div class="cta-desc">Subscribe to my newsletter for web design tips, coding tutorials, and digital inspiration delivered straight to your inbox.</div>
+      <form class="cta-form" onsubmit="event.preventDefault(); /* Add your subscribe logic here */">
+        <input type="email" class="cta-input" placeholder="Enter your email" required />
+        <button class="cta-btn" type="submit">Subscribe</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>© <span class="copyright-year">2024</span> Steven Roque. All rights reserved.</p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script>
+    // Fade-in animation on scroll (Intersection Observer)
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.fade-in').forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>

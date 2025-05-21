@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About ArquiSherX | Company History & Board Members</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: #fff;
+      line-height: 1.6;
+     
+    }
+
+   
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: #fff;
+      margin: 4px 0;
+      border-radius: 2px;
+    }
+    
+
+    @media (max-width: 768px) {
+      .nav-links {
+        background: rgba(30, 29, 29, 0.95);
+        width: 100%;
+        flex-direction: column;
+        display: none;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .logo-img {
+        height: 30px;
+        
+      }
+    }
+
+    /* Original about.html styles below */
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1, h2 {
+      margin-bottom: 20px;
+      font-weight: 700;
+      color: #fff;
+      text-align: left;
+    }
+
+    p {
+      color: #ddd;
+      font-size: 1.1rem;
+      margin: 0 0 20px;
+    }
+
+    .company-history {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 40px;
+      margin-top: 60px;
+      padding: 20px;
+    }
+
+    .company-history-text {
+      flex: 1 1 400px;
+      margin-top: var(--history-margin-top, 100px);
+      font-size: var(--history-text-size, 1.1rem);
+      text-align: left;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+      animation-delay: 0.2s;
+    }
+
+    .company-logo-container {
+      flex: 1 1 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+      animation-delay: 0.4s;
+    }
+
+    .company-logo {
+      max-width: 100%;
+      max-height: 300px;
+      width: var(--logo-width, 250px);
+      height: var(--logo-height, auto);
+      object-fit: contain;
+      transition: transform 0.3s ease;
+      border-radius: 25px;
+    }
+
+    .company-logo:hover {
+      transform: scale(1.05);
+    }
+
+    .board-members {
+      margin-top: 80px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.8s forwards;
+      animation-delay: 0.6s;
+    }
+
+    .board-image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .board-image {
+      max-width: var(--board-img-width, 800px);
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #6f0000aa;
+      transition: transform 0.3s ease;
+    }
+
+    .board-image:hover {
+      transform: scale(1.02);
+    }
+
+    .team-description {
+      max-width: 900px;
+      margin: 40px 20px 0 20px;
+      padding-left: 20px;
+      text-align: left;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: #ccc;
+    }
+
+    .team-description h2 {
+      color: #fff;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .team-description strong {
+      color: #fff;
+    }
+
+    .team-description ul {
+      margin-left: 20px;
+      list-style-type: disc;
+    }
+
+    .team-description li {
+      margin-bottom: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .company-history {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .company-history-text h1,
+      .company-history-text p {
+        text-align: center;
+      }
+
+      .company-logo {
+        width: 200px;
+      }
+
+      .team-description {
+        padding-left: 0;
+        margin-left: 0;
+      }
+
+      .team-description h2, 
+      .team-description p, 
+      .team-description li {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 100px 15px 30px;
+      }
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html"><img src="Images/Logo.jpg" alt="Logo" class="logo-img" /></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="mission_vision.html">Mission & Vision</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="myprofile.html">My Profile</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    
+    <section class="company-history"> <div class="company-logo-container">
+        <img src="Images/Logo.jpg" alt="Company Logo" class="company-logo" style="--logo-width: 250px;" />
+      </div>
+      
+      <div class="company-history-text" style="--history-margin-top: -30px; --history-text-size: 2.1rem;">
+        <h1>Company History</h1>
+        <p>
+          Founded in 2022, ArquiSherX began as a one-person freelance venture with a vision to create stunning,
+          user-friendly websites tailored to each client's unique needs. Over the years, the company has grown
+          into a passionate team of creative professionals dedicated to delivering high-quality, custom web solutions.
+          Our journey has been marked by innovation, dedication, and a commitment to bringing ideas to life through
+          modern web design and development.
+        </p>
+        <p>
+          Today, ArquiSherX continues to evolve, embracing new technologies and design trends to empower businesses
+          and individuals worldwide. We pride ourselves on personalized service and results that inspire.
+        </p>
+      </div>
+      
+    </section>
+
+    <br><br>
+    <hr style="height: 3px; background-color: rgb(255, 255, 255); border: none;">
+
+    <section class="board-members">
+      <h1 style="text-align: center;">The ArquiSherX Team: Crafting Excellence in Web Development</h1>
+      <div class="board-image-container">
+        <img src="Images/Board Members.jpg" alt="Board Members" class="board-image" />
+      </div>
+    </section>
+
+    <section class="team-description">
+      <p>
+        At ArquiSherX, we are more than just a team—we are a dynamic collective of innovators, designers, and developers committed to crafting seamless digital experiences. Led by <strong>Steven Roque</strong>, our CEO, we uphold a meticulous approach to web development, balancing functionality and aesthetics to deliver high-quality results.
+      </p>
+      <p><strong>Our core team consists of:</strong></p>
+      <ul>
+        <li><strong>Olivia Wilson (Web Designer)</strong>: A visionary in user-centered design, ensuring every visual element enhances the brand identity.</li>
+        <li><strong>Soo Jin Ae (Front-end Developer)</strong>: A specialist in crafting responsive and engaging user interfaces, bringing designs to life with precision.</li>
+        <li><strong>Ketut Susilo (Back-end Developer)</strong>: The backbone of our technical infrastructure, ensuring seamless functionality and system efficiency.</li>
+      </ul>
+      <p><strong>Supporting our experts are:</strong></p>
+      <ul>
+        <li><strong>Samira Hadid (Full-stack Developer)</strong>: Bridging front-end creativity with back-end logic for a cohesive user experience.</li>
+        <li><strong>Cahaya Dewi (UX Designer)</strong>: Fine-tuning user interactions for an intuitive, immersive browsing journey.</li>
+        <li><strong>Sacha Dubois (UI Designer)</strong>: Refining interface details, ensuring clarity and visual appeal across all screen sizes.</li>
+      </ul>
+      <p>
+        At ArquiSherX, every pixel, every line of code, and every user interaction is designed with precision and intent. We don't just build websites—we craft digital experiences that leave a lasting impression.
+      </p>
+    </section>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        navLinks.classList.toggle("show");
+      });
+    });
+  </script>
+</body>
+</html>

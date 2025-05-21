@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Steven Roque's web design and development projects">
+  <title>Steven Roque | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .featured-section {
+      padding: 120px 0 40px;
+      background: var(--background-dark);
+      text-align: left;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .featured-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      padding: 0 10px;
+    }
+    .featured-title {
+      color: #fff;
+      font-size: 2.1rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .featured-desc {
+      color: var(--text-gray);
+      font-size: 1rem;
+      margin-bottom: 30px;
+      padding: 0 10px;
+    }
+    .view-all-btn {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 10px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .view-all-btn:hover {
+      background: var(--primary-hover);
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+      margin-bottom: 60px;
+      padding: 0 10px;
+    }
+    .project-card {
+      background: var(--background-light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px #000a;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s, box-shadow 0.25s;
+      position: relative;
+    }
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 8px 32px #6f0000cc;
+    }
+    .project-img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background: #222;
+    }
+    .project-content {
+      padding: 22px 20px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .project-title {
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .know-more {
+      color: var(--primary-color);
+      font-size: 0.98rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 8px;
+      text-decoration: none;
+      transition: color 0.2s;
+      display: inline-block;
+    }
+    .profile-section {
+  max-width: 900px;
+  margin: 60px auto 40px auto;
+  background: var(--background-light);
+  border-radius: 16px;
+  box-shadow: 0 2px 16px #000a;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 36px 32px;
+  position: relative;
+}
+.profile-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary-color);
+  box-shadow: 0 2px 12px #6f0000aa;
+  background: #222;
+}
+.profile-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.profile-name {
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+.profile-title {
+  color: var(--primary-color);
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.profile-bio {
+  color: var(--text-gray);
+  font-size: 1.08rem;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+.profile-socials {
+  display: flex;
+  gap: 18px;
+  margin-top: 8px;
+}
+.profile-socials a {
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  transition: color 0.2s;
+}
+.profile-socials a:hover {
+  color: var(--primary-hover);
+}
+@media (max-width: 700px) {
+  .profile-section {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 24px 12px;
+    gap: 18px;
+  }
+  .profile-img {
+    width: 90px;
+    height: 90px;
+  }
+  .profile-name {
+    font-size: 1.3rem;
+  }
+}
+    .know-more:hover {
+      color: var(--primary-hover);
+      text-decoration: underline;
+    }
+    .cta-section {
+      background: var(--background-light);
+      border-radius: 12px;
+      max-width: 1100px;
+      margin: 20px auto 40px auto;
+      padding: 48px 30px 38px 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      box-shadow: 0 2px 12px #000a;
+    }
+    .cta-title {
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .cta-desc {
+      color: var(--text-gray);
+      font-size: 1.08rem;
+      margin-bottom: 22px;
+      max-width: 600px;
+    }
+    main {
+      margin-top: 200px;
+    }
+    .cta-btn {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 36px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .cta-btn:hover {
+      background: var(--primary-hover);
+    }
+    @media (max-width: 900px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .featured-section, .cta-section {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    @media (max-width: 600px) {
+      .featured-title, .cta-title {
+        font-size: 1.3rem;
+      }
+      .project-img {
+        height: 140px;
+      }
+      .cta-section {
+        padding: 30px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html"><img src="Images/Logo.jpg" alt="Logo" class="logo-img" /></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="mission_vision.html">Mission & Vision</a></li>
+        <li><a href="portfolio.html" class="active">Portfolio</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="faqs.html">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="myprofile.html">My Profile</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="profile-section fade-in">
+      <img src="Images/f034b044-ab74-4f9f-9ac5-ae6c202e2f2e.jpg" alt="Steven Roque" class="profile-img" />
+      <div class="profile-info">
+        <div class="profile-name">Steven Roque</div>
+        <div class="profile-title">Web Designer & Developer</div>
+        <div class="profile-bio">
+          Passionate about crafting visually stunning and highly functional websites. I help businesses and individuals grow their online presence through creative design and modern web technologies.
+        </div>
+        <div class="profile-socials">
+          <a href="https://www.facebook.com/rstevengon" target="_blank" aria-label="LinkedIn"><i class="fab fa-facebook"></i></a>
+          <a href="https://github.com/Arquisher1118" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="rsteven.gon@icloud.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </section>
+    <section class="featured-section fade-in">
+      <div class="featured-header">
+        <div>
+          <div class="featured-title">Featured Projects</div>
+          <div class="featured-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        </div>
+        
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <img src="Images/234d76a3-5bd3-4fa1-b839-3394902ce9a9.jpg" alt="The Vintage" class="project-img" />
+          <div class="project-content">
+            <div class="project-title">Calendar</div>
+            <a href="https://admirable-puffpuff-2e2b65.netlify.app/" target="_blank" class="know-more">Know More &gt;</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="Images/cf035916-b893-4415-8560-c635ac0450d1.jpg" alt="Foodasa" class="project-img" />
+          <div class="project-content">
+            <div class="project-title">Website</div>
+            <a href="https://arquisher1118.github.io/Shopping-WEB/" target="_blank" class="know-more">Know More &gt;</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <img src="Images/Registration.png" alt="Marco Accent" class="project-img" />
+          <div class="project-content">
+            <div class="project-title">Registration Form</div>
+            <a href="https://arquisher1118.github.io/HTML-Registration-Project-in-Webpage-Development/" class="know-more">Know More &gt;</a>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    <section class="cta-section fade-in">
+      <div class="cta-title">Let's work together on your next project</div>
+      <div class="cta-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</div>
+      <a href="contact.html" class="cta-btn">Contact</a>
+    </section>
+  </main>
+  <footer>
+    <p>© <span class="copyright-year">2024</span> Steven Roque. All rights reserved.</p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script>
+    // Fade-in animation on scroll (Intersection Observer)
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.fade-in').forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>

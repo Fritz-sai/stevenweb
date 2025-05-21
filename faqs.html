@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Frequently Asked Questions about Steven Roque's web design and development services.">
+  <title>Steven Roque | FAQs</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .faq-section {
+      max-width: 900px;
+      margin: 120px auto 60px auto;
+      padding: 0 20px;
+    }
+    .faq-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .faq-header h2 {
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .faq-header p {
+      color: var(--text-gray);
+      font-size: 1.1rem;
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .faq-item {
+      background: var(--background-light);
+      border-radius: 10px;
+      box-shadow: 0 2px 12px #000a;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .faq-question {
+      cursor: pointer;
+      padding: 22px 24px;
+      color: #fff;
+      font-size: 1.15rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: none;
+      border: none;
+      width: 100%;
+      outline: none;
+      transition: background 0.2s;
+    }
+    .faq-question:hover {
+      background: rgba(111,0,0,0.08);
+    }
+    .faq-icon {
+      font-size: 1.2rem;
+      color: var(--primary-color);
+      margin-left: 12px;
+      transition: transform 0.3s;
+    }
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      background: #191818;
+      color: var(--text-gray);
+      font-size: 1.05rem;
+      padding: 0 24px;
+      transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.4s;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 16px 24px 22px 24px;
+    }
+    @media (max-width: 600px) {
+      .faq-header h2 {
+        font-size: 1.3rem;
+      }
+      .faq-question {
+        font-size: 1rem;
+        padding: 16px 12px;
+      }
+      .faq-answer {
+        font-size: 0.98rem;
+        padding: 0 12px;
+      }
+      .faq-item.open .faq-answer {
+        padding: 12px 12px 16px 12px;
+      }
+    }
+    .ask-question-section {
+      max-width: 600px;
+      margin: 20px auto 40px auto;
+      background: var(--background-light);
+      border-radius: 14px;
+      box-shadow: 0 2px 12px #000a;
+      padding: 36px 28px 28px 28px;
+      text-align: center;
+    }
+    .ask-header {
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .ask-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .ask-fields {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .ask-input {
+      flex: 1 1 180px;
+      padding: 12px 14px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      background: #222;
+      color: #fff;
+      outline: none;
+      margin-bottom: 0;
+      transition: box-shadow 0.2s;
+    }
+    .ask-input:focus, .ask-textarea:focus {
+      box-shadow: 0 0 0 2px var(--primary-color);
+    }
+    .ask-textarea {
+      width: 100%;
+      min-height: 90px;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      background: #222;
+      color: #fff;
+      outline: none;
+      padding: 12px 14px;
+      resize: vertical;
+      transition: box-shadow 0.2s;
+    }
+    .ask-btn {
+      background: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      padding: 12px 32px;
+      font-size: 1.08rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.2s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 6px;
+      align-self: center;
+    }
+    .ask-btn:hover {
+      background: var(--primary-hover);
+    }
+    @media (max-width: 600px) {
+      .ask-question-section {
+        padding: 18px 6px 16px 6px;
+      }
+      .ask-fields {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <a href="index.html"><img src="Images/Logo.jpg" alt="Logo" class="logo-img" /></a>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="mission_vision.html">Mission & Vision</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="testimonials.html">Testimonials</a></li>
+        <li><a href="blogs.html">Blog</a></li>
+        <li><a href="faqs.html" class="active">FAQs</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="myprofile.html">My Profile</a></li>
+      </ul>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <section class="faq-section">
+      <div class="faq-header fade-in">
+        <h2>Frequently Asked Questions</h2>
+        <p>Find answers to the most common questions about my web design and development services.</p>
+      </div>
+      <div class="faq-list fade-in">
+        <div class="faq-item">
+          <button class="faq-question">
+            What services do you offer?
+            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            I offer web design, web development, SEO optimization, consulting, and more. Each project is tailored to your unique needs.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            How long does it take to build a website?
+            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            Project timelines vary based on complexity and requirements, but most websites are completed within 2-6 weeks.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Do you provide ongoing support after launch?
+            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            Yes! I offer maintenance, updates, and support packages to ensure your website stays secure and up-to-date.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            Can you redesign my existing website?
+            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            Absolutely. I can refresh your current site with a modern look, improved performance, and better user experience.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I get started?
+            <span class="faq-icon"><i class="fas fa-plus"></i></span>
+          </button>
+          <div class="faq-answer">
+            Simply <a href="contact.html" style="color:var(--primary-color);text-decoration:underline;">contact me</a> to discuss your project and get a free quote.
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="ask-question-section fade-in">
+      <div class="ask-header">Didn't find your answer? Ask a question!</div>
+      <form class="ask-form" onsubmit="event.preventDefault(); /* Add your send logic here */">
+        <div class="ask-fields">
+          <input type="text" name="name" class="ask-input" placeholder="Your Name" required />
+          <input type="email" name="email" class="ask-input" placeholder="Your Email" required />
+        </div>
+        <textarea name="question" class="ask-textarea" placeholder="Type your question..." required></textarea>
+        <button type="submit" class="ask-btn">Submit Question</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>© <span class="copyright-year">2024</span> Steven Roque. All rights reserved.</p>
+  </footer>
+  <script src="js/main.js"></script>
+  <script>
+    // FAQ accordion logic
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        item.classList.toggle('open');
+        // Close others
+        document.querySelectorAll('.faq-item').forEach(other => {
+          if (other !== item) other.classList.remove('open');
+        });
+      });
+    });
+
+    // Fade-in animation on scroll (Intersection Observer)
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
+      });
+    }, observerOptions);
+    document.querySelectorAll('.fade-in').forEach(element => {
+      observer.observe(element);
+    });
+  </script>
+</body>
+</html>
