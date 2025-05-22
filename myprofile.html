@@ -210,36 +210,98 @@
       .profile-hero, .about-section {
         flex-direction: column;
         gap: 24px;
-        align-items: flex-start;
+        align-items: center;
       }
+
       .hero-img, .about-img {
-        max-width: 100%;
+        max-width: 280px;
         width: 100%;
         height: auto;
         margin: 0 auto;
       }
+
       .about-section {
-        padding: 0 8px;
+        padding: 20px;
+      }
+
+      .hero-left {
+        text-align: center;
+        align-items: center;
       }
     }
     @media (max-width: 600px) {
-      .profile-hero, .about-section, .services-section {
-        padding: 0 4px;
+      .profile-hero {
+        margin-top: 80px;
+        padding: 0 10px 30px;
       }
+
       .hero-img, .about-img {
-        display: none;
+        max-width: 220px;
+        margin: 0 auto;
       }
+
       .hero-greeting {
-        font-size: 1.1rem;
-      }
-      .hero-name {
         font-size: 1.5rem;
       }
-      .services-title {
-        font-size: 1.1rem;
+
+      .hero-name {
+        font-size: 1.8rem;
       }
-      .services-title::after {
-        font-size: 2.2rem;
+
+      .hero-tagline {
+        font-size: 1rem;
+      }
+
+      .hero-btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+      }
+
+      .about-section {
+        margin: 0 10px 30px;
+        padding: 15px;
+      }
+
+      .about-title {
+        font-size: 1.5rem;
+      }
+
+      .about-bio {
+        font-size: 0.95rem;
+      }
+
+      .about-details {
+        font-size: 0.9rem;
+      }
+    }
+    @media (max-width: 400px) {
+      .hero-img, .about-img {
+        max-width: 180px;
+      }
+
+      .hero-greeting {
+        font-size: 1.3rem;
+      }
+
+      .hero-name {
+        font-size: 1.6rem;
+      }
+
+      .hero-tagline {
+        font-size: 0.9rem;
+      }
+
+      .hero-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+
+      .about-title {
+        font-size: 1.3rem;
+      }
+
+      .about-bio {
+        font-size: 0.9rem;
       }
     }
     .experience-section {
@@ -368,6 +430,226 @@
       .reflection-icon {
         margin-right: 0;
         margin-bottom: 12px;
+      }
+    }
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+      .nav-links {
+        background: rgba(30, 29, 29, 0.95);
+        width: 100%;
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 20px;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.show {
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 10px;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        background: rgba(111, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .logo-img {
+        height: 30px;
+      }
+    }
+
+    /* Responsive Design Updates */
+    @media (max-width: 900px) {
+      .profile-hero {
+        margin-top: 100px;
+        padding: 0 15px 40px;
+        gap: 20px;
+      }
+
+      .hero-left {
+        text-align: center;
+        align-items: center;
+      }
+
+      .hero-greeting {
+        font-size: 1.8rem;
+      }
+
+      .hero-name {
+        font-size: 2.2rem;
+      }
+
+      .hero-tagline {
+        font-size: 1.1rem;
+      }
+
+      .hero-img {
+        max-width: 280px;
+      }
+
+      .about-section {
+        margin: 0 15px 40px;
+        padding: 20px;
+      }
+
+      .about-title {
+        font-size: 1.8rem;
+      }
+
+      .about-bio {
+        font-size: 1rem;
+      }
+
+      .services-section {
+        padding: 0 15px;
+      }
+
+      .services-title {
+        font-size: 1.8rem;
+      }
+
+      .services-title::after {
+        font-size: 3.5rem;
+      }
+
+      .services-grid {
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .profile-hero {
+        margin-top: 80px;
+        padding: 0 10px 30px;
+      }
+
+      .hero-greeting {
+        font-size: 1.5rem;
+      }
+
+      .hero-name {
+        font-size: 1.8rem;
+      }
+
+      .hero-tagline {
+        font-size: 1rem;
+      }
+
+      .hero-btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+      }
+
+      .about-section {
+        margin: 0 10px 30px;
+        padding: 15px;
+      }
+
+      .about-title {
+        font-size: 1.5rem;
+      }
+
+      .about-bio {
+        font-size: 0.95rem;
+      }
+
+      .about-details {
+        font-size: 0.9rem;
+      }
+
+      .services-title {
+        font-size: 1.5rem;
+      }
+
+      .services-title::after {
+        font-size: 2.5rem;
+      }
+
+      .service-card {
+        padding: 20px 15px;
+      }
+
+      .service-title {
+        font-size: 1.1rem;
+      }
+
+      .service-desc {
+        font-size: 0.9rem;
+      }
+
+      .experience-title, .reflection-title {
+        font-size: 1.5rem;
+      }
+
+      .exp-role {
+        font-size: 1.1rem;
+      }
+
+      .exp-desc, .reflection-text {
+        font-size: 0.95rem;
+      }
+
+      .exp-tech {
+        font-size: 0.9rem;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .hero-greeting {
+        font-size: 1.3rem;
+      }
+
+      .hero-name {
+        font-size: 1.6rem;
+      }
+
+      .hero-tagline {
+        font-size: 0.9rem;
+      }
+
+      .hero-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
+
+      .about-title {
+        font-size: 1.3rem;
+      }
+
+      .about-bio {
+        font-size: 0.9rem;
+      }
+
+      .services-title {
+        font-size: 1.3rem;
+      }
+
+      .services-title::after {
+        font-size: 2rem;
       }
     }
   </style>

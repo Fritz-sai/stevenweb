@@ -238,6 +238,83 @@
         padding: 30px 10px;
       }
     }
+    /* Mobile Navigation */
+    @media (max-width: 768px) {
+      .nav-links {
+        background: rgba(30, 29, 29, 0.95);
+        width: 100%;
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 20px;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-links.show {
+        display: flex;
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 10px;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        background: rgba(111, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .logo-img {
+        height: 30px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .featured-section, .cta-section {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      main {
+        margin-top: 100px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .featured-title, .cta-title {
+        font-size: 1.3rem;
+      }
+      .project-img {
+        height: 140px;
+      }
+      .cta-section {
+        padding: 30px 10px;
+      }
+      main {
+        margin-top: 80px;
+      }
+    }
   </style>
 </head>
 <body>

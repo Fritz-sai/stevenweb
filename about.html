@@ -44,10 +44,38 @@
         width: 100%;
         flex-direction: column;
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 20px;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
 
       .nav-links.show {
         display: flex;
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 10px;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        background: rgba(111, 0, 0, 0.2);
+        border-radius: 5px;
       }
 
       .hamburger {
@@ -56,7 +84,6 @@
 
       .logo-img {
         height: 30px;
-        
       }
     }
 
@@ -85,7 +112,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 40px;
-      margin-top: 60px;
+      margin-top: 200px;
       padding: 20px;
     }
 
@@ -187,6 +214,10 @@
       .company-history {
         flex-direction: column;
         text-align: center;
+        margin-top: 100px;
+      }
+      .company-logo-container {
+        margin-top: 0;
       }
 
       .company-history-text h1,
@@ -222,6 +253,7 @@
         transform: translateY(0);
       }
     }
+    
   </style>
 </head>
 <body>
@@ -248,7 +280,7 @@
 
   <main>
     
-    <section class="company-history"> <div class="company-logo-container">
+    <section class="company-history"> <div class="company-logo-container" ">
         <img src="Images/Logo.jpg" alt="Company Logo" class="company-logo" style="--logo-width: 250px;" />
       </div>
       

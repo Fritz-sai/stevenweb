@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Steven Roque | Services & Portfolio</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     /* Reset & base */
     * {
@@ -226,41 +227,56 @@
       box-shadow: inset 0 1px 3px #616161cc;
     }
     /* Responsive */
-    @media(max-width: 768px) {
+    @media (max-width: 768px) {
       .nav-links {
-        display: none;
+        background: rgba(30, 29, 29, 0.95);
+        width: 100%;
         flex-direction: column;
-        background: #3a0000cc;
-        position: fixed;
-        top: 80px;
-        right: 0;
-        width: 60vw;
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
         padding: 20px;
-        border-radius: 0 0 0 10px;
-        box-shadow: -2px 0 15px #7f0000cc;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
+
       .nav-links.show {
         display: flex;
+        transform: translateY(0);
+        opacity: 1;
       }
+
+      .nav-links li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 10px;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        background: rgba(111, 0, 0, 0.2);
+        border-radius: 5px;
+      }
+
       .hamburger {
         display: flex;
       }
-      .services {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-        justify-items: center;
-      }
-      .clients {
-        flex-direction: column;
-        align-items: center;
+
+      .logo-img {
+        height: 30px;
       }
     }
   </style>
-  <link
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    rel="stylesheet"
-  />
+ 
 </head>
 <body>
   <header>
@@ -271,14 +287,14 @@
         <li><a href="about.html">About</a></li>
         <li><a href="services.html" class="active">Services</a></li>
         <li><a href="mission_vision.html">Mission & Vision</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="portfolio.html" >Portfolio</a></li>
         <li><a href="testimonials.html">Testimonials</a></li>
         <li><a href="blogs.html">Blog</a></li>
         <li><a href="faqs.html">FAQs</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="myprofile.html">My Profile</a></li>
       </ul>
-      <div class="hamburger" id="hamburger" aria-label="Toggle navigation menu" role="button" tabindex="0">
+      <div class="hamburger" id="hamburger">
         <span></span><span></span><span></span>
       </div>
     </nav>
@@ -349,27 +365,19 @@
     <p>© 2025 Steven Roque | Web Design | All rights reserved.</p>
   </footer>
 
+  <script src="js/main.js"></script>
   <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-
-    hamburger.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        navLinks.classList.toggle('show');
-      }
-    });
-
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-      card.addEventListener('click', function() {
-        const projectTitle = this.querySelector('h3').textContent;
-        alert(`You clicked on: ${projectTitle}`);
+    // Fade-in animation on scroll (Intersection Observer)
+    const observerOptions = { threshold: 0.1 };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('fade-in');
+        }
       });
+    }, observerOptions);
+    document.querySelectorAll('.fade-in').forEach(element => {
+      observer.observe(element);
     });
   </script>
 </body>

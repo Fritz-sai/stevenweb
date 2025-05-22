@@ -246,14 +246,46 @@
         width: 100%;
         flex-direction: column;
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 20px;
+        transform: translateY(-20px);
+        opacity: 0;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
 
       .nav-links.show {
         display: flex;
+        transform: translateY(0);
+        opacity: 1;
+      }
+
+      .nav-links li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .nav-links a {
+        display: block;
+        padding: 10px;
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .nav-links a:hover {
+        background: rgba(111, 0, 0, 0.2);
+        border-radius: 5px;
       }
 
       .hamburger {
         display: flex;
+      }
+
+      .logo-img {
+        height: 30px;
       }
 
       .hero-inner {
@@ -271,10 +303,6 @@
         top: 0;
         left: 0;
         position: relative;
-      }
-
-      .logo-img {
-        height: 30px;
       }
 
       .services {
@@ -311,10 +339,10 @@
       <a href="index.html"><img src="Images/Logo.jpg" alt="Logo" class="logo-img" /></a>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html" >About</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
         <li><a href="mission_vision.html">Mission & Vision</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="portfolio.html" >Portfolio</a></li>
         <li><a href="testimonials.html">Testimonials</a></li>
         <li><a href="blogs.html">Blog</a></li>
         <li><a href="faqs.html">FAQs</a></li>
@@ -382,14 +410,7 @@
   <footer>
     <p>© 2023 Steven Roque. All rights reserved.</p>
   </footer>
-
-  <script>
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-
-    hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('show');
-    });
-  </script>
+  <script src="js/main.js"></script>
+  
 </body>
 </html>
